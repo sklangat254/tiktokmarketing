@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRB Check - TikTok Marketing</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Animated background particles */
+        .particle {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            animation: float 15s infinite ease-in-out;
+        }
+
+        .particle:nth-child(1) { top: 10%; left: 20%; animation-delay: 0s; }
+        .particle:nth-child(2) { top: 30%; left: 80%; animation-delay: 2s; }
+        .particle:nth-child(3) { top: 60%; left: 10%; animation-delay: 4s; }
+        .particle:nth-child(4) { top: 80%; left: 70%; animation-delay: 6s; }
+        .particle:nth-child(5) { top: 20%; left: 50%; animation-delay: 8s; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) scale(1); opacity: 0.3; }
+            50% { transform: translateY(-100px) scale(1.5); opacity: 0.8; }
+        }
+
+        /* Main container */
+        .container {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        /* Animated text container */
+        .text-container {
+            position: absolute;
+            text-align: center;
+            width: 90%;
+            max-width: 500px;
+            transition: all 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        .main-text {
+            font-size: 3rem;
+            font-weight: 900;
+            color: white;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            line-height: 1.2;
+            margin-bottom: 20px;
+            animation: textPulse 2s ease-in-out infinite;
+        }
+
+        .sub-text {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.95);
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            animation: textFloat 3s ease-in-out infinite;
+        }
+
+        .emoji {
+            font-size: 4rem;
+            display: block;
+            margin-bottom: 20px;
+            animation: emojiSpin 3s ease-in-out infinite;
+        }
+
+        /* Animations */
+        @keyframes textPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        @keyframes textFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @keyframes emojiSpin {
+            0%, 100% { transform: rotate(0deg) scale(1); }
+            25% { transform: rotate(-10deg) scale(1.1); }
+            75% { transform: rotate(10deg) scale(1.1); }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-100px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(100px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInTop {
+            from {
+                opacity: 0;
+                transform: translateY(-100px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInBottom {
+            from {
+                opacity: 0;
+                transform: translateY(100px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes zoomIn {
+            from {
+                opacity: 0;
+                transform: scale(0.5);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Price tag */
+        .price-tag {
+            display: inline-block;
+            background: white;
+            color: #667eea;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-size: 2rem;
+            font-weight: 900;
+            margin-top: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            animation: pricePulse 1.5s ease-in-out infinite;
+        }
+
+        @keyframes pricePulse {
+            0%, 100% { transform: scale(1); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); }
+            50% { transform: scale(1.1); box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5); }
+        }
+
+        /* CTA Button */
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: #667eea;
+            padding: 20px 40px;
+            border-radius: 50px;
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-top: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            text-decoration: none;
+            animation: buttonBounce 2s ease-in-out infinite;
+        }
+
+        @keyframes buttonBounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* Arrow indicator */
+        .arrow {
+            position: absolute;
+            bottom: 50px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 3rem;
+            color: white;
+            animation: arrowBounce 1.5s ease-in-out infinite;
+        }
+
+        @keyframes arrowBounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(10px); }
+        }
+
+        /* Highlight box */
+        .highlight-box {
+            background: rgba(255, 255, 255, 0.2);
+            border: 3px solid white;
+            border-radius: 20px;
+            padding: 30px;
+            backdrop-filter: blur(10px);
+        }
+
+        /* Badge */
+        .badge {
+            display: inline-block;
+            background: #ff6b6b;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            animation: badgeShake 3s ease-in-out infinite;
+        }
+
+        @keyframes badgeShake {
+            0%, 100% { transform: rotate(0deg); }
+            10%, 30% { transform: rotate(-3deg); }
+            20%, 40% { transform: rotate(3deg); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Background particles -->
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+
+    <div class="container" id="mainContainer">
+        <div class="text-container" id="textContainer">
+            <!-- Content will be dynamically inserted here -->
+        </div>
+    </div>
+
+    <script>
+        const scenes = [
+            // Scene 1: Hook
+            {
+                html: `
+                    <span class="emoji">😱</span>
+                    <div class="main-text">Ever Been Denied a Loan?</div>
+                    <div class="sub-text">Find Out Why!</div>
+                `,
+                animation: 'zoomIn',
+                position: 'center',
+                duration: 3000
+            },
+            
+            // Scene 2: Problem
+            {
+                html: `
+                    <span class="emoji">🤔</span>
+                    <div class="main-text">Your CRB Status Matters</div>
+                    <div class="sub-text">Banks Check It First</div>
+                `,
+                animation: 'slideInLeft',
+                position: 'center',
+                duration: 3000
+            },
+            
+            // Scene 3: Question
+            {
+                html: `
+                    <span class="emoji">❓</span>
+                    <div class="main-text">What's Your Credit Score?</div>
+                    <div class="sub-text">Know Before You Apply</div>
+                `,
+                animation: 'slideInRight',
+                position: 'center',
+                duration: 3000
+            },
+            
+            // Scene 4: Solution
+            {
+                html: `
+                    <span class="badge">✨ NEW</span>
+                    <div class="main-text">Check Your CRB Status</div>
+                    <div class="sub-text">In Just 2 Minutes</div>
+                    <div class="arrow">⬇️</div>
+                `,
+                animation: 'slideInTop',
+                position: 'center',
+                duration: 3000
+            },
+            
+            // Scene 5: Speed
+            {
+                html: `
+                    <span class="emoji">⚡</span>
+                    <div class="main-text">Instant Results</div>
+                    <div class="sub-text">No Waiting Required</div>
+                `,
+                animation: 'zoomIn',
+                position: 'center',
+                duration: 2500
+            },
+            
+            // Scene 6: Price 1
+            {
+                html: `
+                    <div class="main-text">Starting From</div>
+                    <div class="price-tag">KES 100</div>
+                    <div class="sub-text">Basic Report</div>
+                `,
+                animation: 'slideInBottom',
+                position: 'center',
+                duration: 3000
+            },
+            
+            // Scene 7: Popular
+            {
+                html: `
+                    <span class="badge">⭐ MOST POPULAR</span>
+                    <div class="main-text">Standard Report</div>
+                    <div class="price-tag">KES 150</div>
+                    <div class="sub-text">Complete Credit History</div>
+                `,
+                animation: 'zoomIn',
+                position: 'center',
+                duration: 3000
+            },
+            
+            // Scene 8: Premium
+            {
+                html: `
+                    <span class="emoji">💎</span>
+                    <div class="main-text">Premium Report</div>
+                    <div class="price-tag">KES 200</div>
+                    <div class="sub-text">With Improvement Tips</div>
+                `,
+                animation: 'slideInRight',
+                position: 'center',
+                duration: 3000
+            },
+            
+            // Scene 9: Features
+            {
+                html: `
+                    <div class="highlight-box">
+                        <span class="emoji">🔒</span>
+                        <div class="main-text">100% Secure</div>
+                        <div class="sub-text">Bank-Level Encryption</div>
+                    </div>
+                `,
+                animation: 'fadeIn',
+                position: 'center',
+                duration: 2500
+            },
+            
+            // Scene 10: Payment
+            {
+                html: `
+                    <span class="emoji">📱</span>
+                    <div class="main-text">Pay with M-Pesa</div>
+                    <div class="sub-text">Quick & Easy</div>
+                `,
+                animation: 'slideInLeft',
+                position: 'center',
+                duration: 2500
+            },
+            
+            // Scene 11: CTA
+            {
+                html: `
+                    <span class="badge">🔥 LIMITED TIME</span>
+                    <div class="main-text">Check Your Score Now!</div>
+                    <div class="cta-button">Link in Bio ☝️</div>
+                `,
+                animation: 'zoomIn',
+                position: 'center',
+                duration: 3500
+            },
+            
+            // Scene 12: Urgency
+            {
+                html: `
+                    <span class="emoji">⏰</span>
+                    <div class="main-text">Don't Wait!</div>
+                    <div class="sub-text">Know Your Status Today</div>
+                    <div class="arrow">☝️</div>
+                `,
+                animation: 'slideInBottom',
+                position: 'center',
+                duration: 3000
+            }
+        ];
+
+        let currentScene = 0;
+        const container = document.getElementById('textContainer');
+
+        function showScene(index) {
+            const scene = scenes[index];
+            
+            // Update content
+            container.innerHTML = scene.html;
+            
+            // Reset animation
+            container.style.animation = 'none';
+            setTimeout(() => {
+                container.style.animation = `${scene.animation} 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards`;
+            }, 10);
+            
+            // Position (for future enhancement)
+            container.style.top = scene.position === 'top' ? '20%' : 
+                                  scene.position === 'bottom' ? '80%' : '50%';
+            container.style.transform = 'translate(-50%, -50%)';
+            container.style.left = '50%';
+        }
+
+        function nextScene() {
+            showScene(currentScene);
+            currentScene = (currentScene + 1) % scenes.length;
+        }
+
+        // Start the animation loop
+        nextScene();
+        setInterval(() => {
+            nextScene();
+        }, scenes[currentScene === 0 ? 0 : currentScene - 1].duration);
+    </script>
+</body>
+</html>
